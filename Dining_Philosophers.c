@@ -35,3 +35,34 @@ void* philosopher(void* arg) {
     }
     return NULL;
 }
+int main() 
+{
+    pthread_t threads[N];
+    int ids[N];
+
+    // Initialize semaphores for each chopstick to 1 (Available)
+    for (int i = 0; i < N; i++) 
+        sem_init(&chopsticks[i], 0, 1);
+    // Create philosopher threads
+    for (int i = 0; i < N; i++) 
+    {
+        ids[i] = i;
+        if (pthread_create(&threads[i], NULL, philosopher, &ids[i]) != 0) 
+        {
+            perror("Failed to create thread");
+            return 1;
+        }
+    }
+
+    // Wait for all philosophers to finish their 3 meals
+    for (int i = 0; i < N; i++) 
+        pthread_join(threads[i], NULL);
+    printf("\nAll philosophers have finished eating and thinking.\n");
+    
+    // Cleanup: Destroy semaphores
+    for (int i = 0; i < N; i++) {
+        sem_destroy(&chopsticks[i]);
+    }
+
+    return 0;
+}

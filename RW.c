@@ -48,3 +48,30 @@ void* writer(void* arg) {
 
     return NULL;
 }
+int main() {
+    pthread_t r_tid[5], w_tid[5]; 
+    int ids[5];
+
+    // Initialize the semaphore (1 = available) and mutex
+    sem_init(&rw_mutex, 0, 1);
+    pthread_mutex_init(&mutex, NULL);
+
+    // Create 5 Reader threads and 5 Writer threads
+    for (int i = 0; i < 5; i++) {
+        ids[i] = i + 1;
+        pthread_create(&r_tid[i], NULL, reader, &ids[i]);
+        pthread_create(&w_tid[i], NULL, writer, &ids[i]);
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < 5; i++) {
+        pthread_join(r_tid[i], NULL);
+        pthread_join(w_tid[i], NULL);
+    }
+
+    // Cleanup
+    sem_destroy(&rw_mutex);
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}

@@ -12,7 +12,7 @@ int main()
     }
     if(pid==0)
     {
-        printf("Child process has just started. Child pid: %d, Parent pid: %d\n",getpid(),getppid());
+        printf("Child process has just started. Child pid: %d, Parent pid: %d\n",getpid(),getppid()); 
         sleep(10);
         printf("Child process still running. PID: %d, Parent PID: %d\n",getpid(),getppid());
         exit(0);

@@ -40,7 +40,7 @@ int main()
     pthread_t t0,t1;
     int id0=0;
     int id1=1;
-    pthread_create(&t0,NULL,process,&id0);
+    pthread_create(&t0,NULL,process,&id0); 
     pthread_create(&t1,NULL,process,&id1);
 
     pthread_join(t0,NULL);

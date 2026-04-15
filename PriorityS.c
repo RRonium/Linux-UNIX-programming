@@ -24,7 +24,7 @@ int main()
             {
                 int temp;
                 temp=pr[j];
-                pr[j]=pr[j+1];
+                pr[j]=pr[j+1]; 
                 pr[j+1]=temp;
 
                 temp=bt[j];

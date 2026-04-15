@@ -5,7 +5,7 @@
 #include <semaphore.h>
 
 #define BUFFER_SIZE 5
-#define N 5
+#define N 5 
 
 
 int buffer[BUFFER_SIZE];
@@ -61,7 +61,7 @@ int main()
     pthread_t cons[N];
     int ids[N];
 
-    sem_init(&empty, 0, BUFFER_SIZE);
+    sem_init(&empty, 0, BUFFER_SIZE); 
     sem_init(&full, 0, 0);
     pthread_mutex_init(&mutex, NULL);
 

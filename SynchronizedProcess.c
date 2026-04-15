@@ -19,7 +19,7 @@ int main()
     }
     else
     {
-        printf("Parent is executing and is goint to wait for the child process to execute and then terminate. Parent PID:%d\n",getpid());
+        printf("Parent is executing and is going to wait for the child process to execute and then terminate. Parent PID:%d\n",getpid());
         wait(NULL);
     }
     return 0;

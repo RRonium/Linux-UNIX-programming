@@ -67,7 +67,7 @@ int main()
     for(int i=0;i<n;i++)
         pthread_join(threads[i],NULL);
     
-    printf("All threads are finished. Final counter: %d",shared_counter);
+    printf("All threads are finished. Final counter: %d",shared_counter); 
 
     return 0;
 }

@@ -18,7 +18,7 @@ int main()
     {
         for(int j=0;j<n-i-1;j++)
         {
-            if(bt[j]>bt[j+1])
+            if(bt[j]>bt[j+1]) 
             {
                 int temp=bt[j];
                 bt[j]=bt[j+1];

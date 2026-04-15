@@ -12,7 +12,7 @@ int main()
     }
     else if(pid==0)
     {
-        printf("Child process is now exiting. PID: %d\n",getpid());
+        printf("Child process is now exiting. PID: %d\n",getpid()); 
         exit(0);
     }
     else
